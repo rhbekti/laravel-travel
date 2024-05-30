@@ -19,6 +19,8 @@ Route::middleware('auth')->group(function () {
 
     // roles
     Route::get('/roles', [App\Http\Controllers\Admin\RoleController::class, 'index'])->name('roles.index');
+    Route::post('/roles', [App\Http\Controllers\Admin\RoleController::class, 'store'])->name('roles.store');
+    Route::delete('/roles/{role}', [App\Http\Controllers\Admin\RoleController::class, 'destroy'])->name('roles.destroy');
 });
 
 require __DIR__ . '/auth.php';
