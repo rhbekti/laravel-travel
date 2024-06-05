@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 
 class RoleController extends Controller
@@ -12,7 +13,7 @@ class RoleController extends Controller
     {
         return view('roles.index', [
             'title' => 'Roles',
-            'roles' => Role::all()
+            'roles' => Role::with('permissions')->get()
         ]);
     }
 
@@ -27,6 +28,15 @@ class RoleController extends Controller
         flash('Role has created');
 
         return redirect()->to('roles');
+    }
+
+    public function edit(Role $role)
+    {
+        return view('roles.edit', [
+            'title' => 'Update Permission',
+            'role' => $role,
+            'permissions' => Permission::all()
+        ]);
     }
 
     public function destroy(Role $role)
