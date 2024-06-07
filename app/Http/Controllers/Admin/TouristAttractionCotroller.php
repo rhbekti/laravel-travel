@@ -19,7 +19,8 @@ class TouristAttractionCotroller extends Controller
     public function create()
     {
         return view('tourist_attraction.create', [
-            'title' => 'Add Tourist Attraction'
+            'title' => 'Add Tourist Attraction',
+            'tourist' => new TouristAttraction()
         ]);
     }
 
