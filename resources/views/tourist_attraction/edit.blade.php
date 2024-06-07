@@ -8,7 +8,9 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
-                <form action="{{ route('tourist-attractions.store') }}" method="post" enctype="multipart/form-data">
+                <form action="{{ route('tourist-attractions.update', $tourist->id) }}" method="post"
+                    enctype="multipart/form-data">
+                    @method('PUT')
                     @include('tourist_attraction.form')
                 </form>
             </div>

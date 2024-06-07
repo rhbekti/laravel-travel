@@ -18,8 +18,8 @@ return new class extends Migration
             $table->integer('travel_capacity');
             $table->string('departure', 100);
             $table->string('destination', 100);
-            $table->string('departure_time', 5);
-            $table->string('arrival_time', 5);
+            $table->string('departure_time', 10);
+            $table->string('arrival_time', 10);
             $table->timestamps();
         });
     }

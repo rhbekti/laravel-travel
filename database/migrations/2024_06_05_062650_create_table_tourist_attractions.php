@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name', 255);
             $table->string('location', 255);
+            $table->string('photo', 255);
             $table->decimal('rating')->default(0.0);
             $table->timestamps();
         });
