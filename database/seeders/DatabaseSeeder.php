@@ -14,15 +14,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        Role::create(['name' => 'user']);
         $role = Role::create(['name' => 'admin']);
-
-        // create permissions
-        Permission::create(['name' => 'edit travel']);
-        Permission::create(['name' => 'delete travel']);
-        $permission = Permission::create(['name' => 'add travel']);
-
-        $role->givePermissionTo($permission);
-        $permission->assignRole($role);
 
         $user = User::factory()->create([
             'name' => 'Admin',

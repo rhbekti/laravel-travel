@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Booking;
+use App\Models\Payment;
 use App\Models\TouristAttraction;
-use App\Models\Travel;
 
 class HomeController extends Controller
 {
@@ -19,9 +19,25 @@ class HomeController extends Controller
     {
         $bookings = Booking::getDataByTouristId($touristAttraction->id);
 
-        return view('detail-tourist', [
+        return view('detail', [
             'tourist' => $touristAttraction,
             'bookings' => $bookings
+        ]);
+    }
+
+    public function checkout(Booking $booking)
+    {
+        return view('checkout', [
+            'booking' => $booking
+        ]);
+    }
+
+    public function cart()
+    {
+        $bookings = Payment::getDataByUserId(auth()->user()->id);
+
+        return view('cart', [
+            'carts' => $bookings
         ]);
     }
 }

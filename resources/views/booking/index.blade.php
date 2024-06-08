@@ -27,7 +27,7 @@
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ Carbon\Carbon::parse($booking->bookingDate)->format('d F Y H:i') }}</td>
                                     <td>{{ $booking->travels->travel_number }}</td>
-                                    <td></td>
+                                    <td>{{ $booking->tourist->name }}</td>
                                     <td>{{ 'Rp ' . Number::format($booking->totalAmount) }}
                                     </td>
                                     <td>

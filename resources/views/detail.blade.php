@@ -3,7 +3,7 @@
         <div class="grid gap-y-2 py-0 lg:grid-cols-2 lg:gap-16 lg:py-10">
             <div class="-mx-4 -mt-4 md:mx-0 lg:mt-0">
                 <figure>
-                    <img class="size-full rounded-none object-cover object-center md:rounded-lg lg:rounded-2xl"
+                    <img class="size-full h-96 rounded-none object-cover object-center md:rounded-lg lg:rounded-2xl"
                         src="{{ url($tourist->photo) }}" alt="{{ $tourist->name }}" />
                 </figure>
             </div>
@@ -78,7 +78,8 @@
                                 <div class="card-actions justify-between">
                                     <span class="my-auto bg-indigo-800 px-2 py-1 rounded-lg">
                                         {{ Carbon\Carbon::parse($booking->bookingDate)->format('d F Y H:i') }}</span>
-                                    <button class="btn btn-primary">Buy Ticket</button>
+                                    <a href="{{ route('checkout.show', $booking->id) }}" class="btn btn-primary">Buy
+                                        Ticket</a>
                                 </div>
                             </div>
                         </div>

@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('travelId')->references('id')->on('travels');
             $table->foreignId('attractionId')->references('id')->on('tourist_attractions');
             $table->dateTime('bookingDate');
-            $table->decimal('totalAmount');
+            $table->bigInteger('totalAmount');
             $table->timestamps();
         });
     }
