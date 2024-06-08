@@ -18,9 +18,9 @@
             </div>
             <select name="travel_type" class="select w-full max-w-xs">
                 <option disabled selected>Pick your favorite travel</option>
-                <option class="car">Mobil</option>
-                <option class="bus">Bus</option>
-                <option class="shuttle">Shuttle</option>
+                <option value="car">Mobil</option>
+                <option value="bus">Bus</option>
+                <option value="shuttle">Shuttle</option>
             </select>
             <div class="label">
                 @error('travel_type')

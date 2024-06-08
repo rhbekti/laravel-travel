@@ -25,10 +25,10 @@
                             @forelse ($bookings as $booking)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $booking->bookingDate }}</td>
+                                    <td>{{ Carbon\Carbon::parse($booking->bookingDate)->format('d F Y H:i') }}</td>
                                     <td>{{ $booking->travels->travel_number }}</td>
                                     <td></td>
-                                    <td>{{ Number::format($booking->totalAmount) }}
+                                    <td>{{ 'Rp ' . Number::format($booking->totalAmount) }}
                                     </td>
                                     <td>
                                         <a href="{{ route('bookings.edit', $booking->id) }}"
