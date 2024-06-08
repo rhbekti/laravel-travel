@@ -1,11 +1,11 @@
 <x-public-layout>
-    <section class="hero min-h-screen bg-base-200">
-        <div class="hero-content text-center">
+    <section class="hero min-h-screen"
+        style="background-image: url(https://salsawisata.com/wp-content/uploads/2022/10/wisata-pantai-kebumen.jpg);">
+        <div class="hero-overlay bg-opacity-60"></div>
+        <div class="hero-content text-center text-neutral-content">
             <div class="max-w-md">
-                <h1 class="text-5xl font-bold">Dolan Bae</h1>
-                <p class="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi
-                    exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
-                <button class="btn btn-primary">Get Started</button>
+                <h1 class="mb-5 text-5xl font-bold">Dolan Bae</h1>
+                <p class="mb-5">Embark on an Unforgettable Adventure: Discover the Untamed Charm of Kebumen</p>
             </div>
         </div>
     </section>

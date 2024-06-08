@@ -20,4 +20,9 @@ class Booking extends Model
     {
         return $this->belongsTo(Travel::class, 'travelId');
     }
+
+    public function tourist()
+    {
+        return $this->belongsTo(TouristAttraction::class, 'attractionId');
+    }
 }
