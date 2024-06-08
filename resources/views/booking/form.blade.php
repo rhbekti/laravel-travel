@@ -5,8 +5,8 @@
             <div class="label">
                 <span class="label-text">Date Booking</span>
             </div>
-            <input type="date" name="bookingDate" id="bookingDate" class="input max-w-md"
-                value="{{ $booking->bookingDate ?? old('bookingDate') }}">
+            <input type="text" name="bookingDate" id="bookingDate" class="input max-w-md"
+                value="{{ $booking->bookingDate != null ? Carbon\Carbon::parse($booking->bookingDate)->format('d-m-Y H:i') : old('bookingDate') }}">
             @error('bookingDate')
                 <div class="label">
                     {{ $message }}
@@ -20,7 +20,8 @@
             <select name="attractionId" class="select w-full max-w-xs">
                 <option disabled selected>Pick your tourist place</option>
                 @foreach ($tourists as $tourist)
-                    <option value="{{ $tourist->id }}"{{ $booking->attractionId == $tourist->id ?? ' selected' }}>
+                    <option
+                        value="{{ $tourist->id }}"{{ $booking->attractionId == $tourist->id ? ' selected' : null }}>
                         {{ $tourist->name }}
                     </option>
                 @endforeach
@@ -38,7 +39,7 @@
             <select name="travelId" class="select w-full max-w-xs">
                 <option disabled selected>Pick your travel</option>
                 @foreach ($travels as $travel)
-                    <option value="{{ $travel->id }}"{{ $booking->travelId == $travel->id ?? ' selected' }}>
+                    <option value="{{ $travel->id }}"{{ $booking->travelId == $travel->id ? ' selected' : null }}>
                         {{ $travel->travel_number . ' - ' . $travel->travel_type }}
                     </option>
                 @endforeach
@@ -61,3 +62,21 @@
         <button type="submit" class="btn btn-primary px-6">Save</button>
     </div>
 </div>
+
+@push('style')
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+@endpush
+
+@push('script')
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script>
+        $(document).ready(function() {
+            $("#bookingDate").flatpickr({
+                enableTime: true,
+                dateFormat: "d-m-Y H:i",
+                time_24hr: true
+            });
+        });
+    </script>
+@endpush

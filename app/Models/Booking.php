@@ -11,6 +11,11 @@ class Booking extends Model
 
     protected $guarded = [];
 
+    public static function getDataByTouristId($touristId)
+    {
+        return self::where('attractionId', $touristId)->orderBy('totalAmount', 'ASC')->get();
+    }
+
     public function travels()
     {
         return $this->belongsTo(Travel::class, 'travelId');
